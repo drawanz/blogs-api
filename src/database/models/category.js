@@ -14,4 +14,4 @@ const createCategoryModel = (sequelize, DataTypes) => {
   return Category;
 };
 
-module.exports = createCategoryModel
+module.exports = createCategoryModel;
