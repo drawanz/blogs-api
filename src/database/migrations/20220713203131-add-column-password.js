@@ -1,10 +1,10 @@
 'use strict';
 
+/**
+ * @param {import('sequelize').queryInterface } queryInterface 
+ * @param {import('sequelize').Sequelize} Sequelize 
+*/
 module.exports = {
-  /**
-   * @param {import('sequelize').queryInterface } queryInterface 
-   * @param {import('sequelize').Sequelize} Sequelize 
-  */
   up: async (queryInterface, Sequelize) => {
    await queryInterface.addColumn('Users', 'password', {
     allowNull: false,
