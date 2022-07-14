@@ -1,4 +1,4 @@
-const { User } = require('../models/index.js');
+const { User } = require('../database/models/index.js');
 const httpStatus = require('../helpers/httpStatusCode');
 const helpers = require('../helpers/index');
 
@@ -13,9 +13,9 @@ const validateUser = async (email, password) => {
   return true;
 };
 
-const postLogin = (email, password) => {
+const postLogin = async (email, password) => {
   const validateObj = helpers.validateProperties({ email, password });
-  const validationUser = validateUser(email, password);
+  const validationUser = await validateUser(email, password);
 
   if (validateObj.message) {
     return validateObj;

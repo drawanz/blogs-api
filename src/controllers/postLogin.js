@@ -1,4 +1,4 @@
-const services = require('../helpers/index');
+const services = require('../services/index');
 const httpStatus = require('../helpers/httpStatusCode');
 
 const postLogin = async (req, res) => {
