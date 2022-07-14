@@ -9,7 +9,8 @@ const createPostCategoryModel = (sequelize, DataTypes) => {
     postId: DataTypes.INTEGER,
     categoryId: DataTypes.INTEGER,
   }, {
-    tableName: 'PostCategories'
+    tableName: 'PostCategories',
+    timestamps: false,
   });
 
   PostCategory.associate = (models) => {

@@ -12,7 +12,8 @@ const createCategoryModel = (sequelize, DataTypes) => {
     },
     name: DataTypes.STRING,
   }, {
-    tableName: 'Categories'
+    tableName: 'Categories',
+    timestamps: false,
   });
 
   Category.associate = (models) => {
