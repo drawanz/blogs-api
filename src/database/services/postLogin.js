@@ -24,7 +24,7 @@ const postLogin = (email, password) => {
     return validationUser;
   }
 
-  const token = helpers.createToken({ email, password });
+  const token = helpers.createToken({ email });
   return { token };
 };
 
