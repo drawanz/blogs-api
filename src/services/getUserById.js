@@ -9,7 +9,7 @@ const getUserById = async (idUser) => {
 
   if (!user) {
     return {
-      status: httpStatus.BAD_REQUEST,
+      status: httpStatus.NOT_FOUND,
       message: 'User does not exist',
     };
   }
