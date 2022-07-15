@@ -1,18 +1,18 @@
 const httpStatus = require('../helpers/httpStatusCode');
 
-const errorHandle = (error, _req, _res, _next) => {
+const errorHandle = (error, _req, res, next) => {
+  console.log(error.message);
   if (error.message === 'jwt must be provided') {
-    return {
-      status: httpStatus.UNAUTHORIZED,
-      message: 'Token not found',
-    };
+    return res
+    .status(httpStatus.UNAUTHORIZED)
+    .json({ message: 'Token not found' });
   }
   if (error.message === 'jwt malformed') {
-    return {
-      status: httpStatus.UNAUTHORIZED,
-      message: 'Expired or invalid token',
-    };
+    return res
+      .status(httpStatus.UNAUTHORIZED)
+      .json({ message: 'Expired or invalid token' });
   }
+  next();
 };
 
 module.exports = errorHandle;
