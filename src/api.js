@@ -7,7 +7,8 @@ const routers = require('./routes/index');
 const app = express();
 
 app.use(express.json());
-app.use('/login', routers.postLogin);
+app.use('/login', routers.loginRoutes);
+app.use('/user', routers.userRoutes);
 
 // ...
 
