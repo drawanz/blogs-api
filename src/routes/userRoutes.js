@@ -7,8 +7,6 @@ const router = express.Router();
 
 router.post(
   '/', 
-  // authToken, 
-  // middlewares.errorHandle, 
   controllers.postUser,
 );
 
@@ -17,6 +15,13 @@ router.get(
   authToken,
   middlewares.errorHandle, 
   controllers.getUsers,
+);
+
+router.get(
+  '/:id',
+  authToken,
+  middlewares.errorHandle, 
+  controllers.getUserById,
 );
 
 module.exports = router;
