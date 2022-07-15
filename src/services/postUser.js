@@ -1,5 +1,6 @@
 const { User } = require('../database/models/index.js');
 const httpStatus = require('../helpers/httpStatusCode');
+const helpers = require('../helpers/index');
 
 const validateLength = (name, password) => {
   if (name.legnth < 8) {
@@ -14,6 +15,7 @@ const validateLength = (name, password) => {
       message: '"password" length must be at least 6 characters long',
     };
   }
+  return true;
 };
 
 const validateEmail = async (email) => {
@@ -30,4 +32,27 @@ const validateEmail = async (email) => {
       message: 'User already registered',
     };
   }
+  return true;
 };
+
+const postUser = async (displayName, email, password, image) => {
+  const validationLength = validateLength(displayName, password);
+  const validationEmail = await validateEmail(email);
+  if (validationLength.message) {
+    return validationLength;
+  }
+  if (validationEmail.message) {
+    return validationEmail;
+  }
+  // const addUser = 
+  await User.create({
+    displayName: `${displayName}`,
+    email: `${email}`,
+    password: `${password}`,
+    image: `${image}`,
+  });
+  const token = helpers.createToken({ email });
+  return { status: httpStatus.CREATED, token };
+};
+
+module.exports = postUser;
