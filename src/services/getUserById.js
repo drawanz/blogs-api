@@ -7,7 +7,7 @@ const getUserById = async (idUser) => {
     attributes: ['id', 'displayName', 'email', 'image'],
   });
 
-  if (!user.dataValues) {
+  if (!user) {
     return {
       status: httpStatus.BAD_REQUEST,
       message: 'User does not exist',

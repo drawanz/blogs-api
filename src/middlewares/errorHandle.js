@@ -1,7 +1,6 @@
 const httpStatus = require('../helpers/httpStatusCode');
 
 const errorHandle = (error, _req, res, next) => {
-  console.log(error.message);
   if (error.message === 'jwt must be provided') {
     return res
     .status(httpStatus.UNAUTHORIZED)
