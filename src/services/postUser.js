@@ -3,13 +3,13 @@ const httpStatus = require('../helpers/httpStatusCode');
 const helpers = require('../helpers/index');
 
 const validateLength = (name, password) => {
-  if (name.legnth < 8) {
+  if (name.length < 8) {
     return {
       status: httpStatus.BAD_REQUEST,
       message: '"displayName" length must be at least 8 characters long',
     };
   }
-  if (password.legnth < 6) {
+  if (password.length < 6) {
     return {
       status: httpStatus.BAD_REQUEST,
       message: '"password" length must be at least 6 characters long',
@@ -25,7 +25,7 @@ const validateEmail = async (email) => {
       message: '"email" must be a valid email',
     };
   }
-  const findUser = User.findOne({ where: { email } });
+  const findUser = await User.findOne({ where: { email } });
   if (findUser) {
     return {
       status: httpStatus.CONFLICT,
