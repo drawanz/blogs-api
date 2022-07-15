@@ -1,7 +1,7 @@
 const { User } = require('../database/models/index.js');
 const httpStatus = require('../helpers/httpStatusCode');
 
-const getUser = async (idUser) => {
+const getUserById = async (idUser) => {
   const [user] = await User.findAll({
     where: { id: `${idUser}` },
     attributes: ['id', 'displayName', 'email', 'image'],
@@ -17,4 +17,4 @@ const getUser = async (idUser) => {
   return user.dataValues;
 };
 
-module.exports = getUser;
+module.exports = getUserById;
