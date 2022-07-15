@@ -52,7 +52,7 @@ const postUser = async (displayName, email, password, image) => {
     image: `${image}`,
   });
   const token = helpers.createToken({ email });
-  return { status: httpStatus.CREATED, token };
+  return { token };
 };
 
 module.exports = postUser;
