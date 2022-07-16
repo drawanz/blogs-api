@@ -12,4 +12,11 @@ router.post(
   controllers.postCategories,
 );
 
+router.get(
+  '/',
+  authToken,
+  middlewares.errorHandle, 
+  controllers.getCategories,
+);
+
 module.exports = router;

@@ -12,6 +12,4 @@ const getCategories = async () => {
   return allPosts;
 };
 
-getCategories().then((r) => console.log(r));
-
 module.exports = getCategories;
