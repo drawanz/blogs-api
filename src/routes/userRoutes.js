@@ -1,26 +1,23 @@
 const express = require('express');
 const controllers = require('../controllers/index');
 const authToken = require('../middlewares/authToken');
-const middlewares = require('../middlewares');
 
 const router = express.Router();
 
 router.post(
-  '/', 
+  '/user', 
   controllers.postUser,
 );
 
 router.get(
-  '/',
+  '/user', 
   authToken,
-  middlewares.errorHandle, 
   controllers.getUsers,
 );
 
 router.get(
-  '/:id',
+  '/user/:id',
   authToken,
-  middlewares.errorHandle, 
   controllers.getUserById,
 );
 
