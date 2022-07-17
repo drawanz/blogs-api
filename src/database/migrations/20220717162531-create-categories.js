@@ -6,27 +6,21 @@
 */
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('PostCategories', {
-      postId: {
+    await queryInterface.createTable('Categories', {
+      id: {
         allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
         type: Sequelize.INTEGER,
-        references: {
-          model: 'BlogPosts',
-          key: 'id',
-        },
       },
-      categoryId: {
+      name: {
         allowNull: false,
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Categories',
-          key: 'id',
-        },
+        type: Sequelize.STRING,
       },
     });
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.droptable('PostCategories')
+    await queryInterface.droptable('Categories')
   }
 };
