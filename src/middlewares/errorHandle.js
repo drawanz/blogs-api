@@ -1,6 +1,6 @@
 const httpStatus = require('../helpers/httpStatusCode');
 
-const errorHandle = (error, _req, res, next) => {
+const errorHandle = (error, _req, res, _next) => {
   if (error.message === 'jwt must be provided') {
     return res
     .status(httpStatus.UNAUTHORIZED)
@@ -11,7 +11,9 @@ const errorHandle = (error, _req, res, next) => {
       .status(httpStatus.UNAUTHORIZED)
       .json({ message: 'Expired or invalid token' });
   }
-  next();
+  return res
+  .status(httpStatus.BAD_REQUEST)
+  .json({ message: error.message });
 };
 
 module.exports = errorHandle;
