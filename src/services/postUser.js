@@ -44,14 +44,13 @@ const postUser = async (displayName, email, password, image) => {
   if (validationEmail.message) {
     return validationEmail;
   }
-  // const addUser = 
-  await User.create({
+  const { dataValues: { id } } = await User.create({
     displayName: `${displayName}`,
     email: `${email}`,
     password: `${password}`,
     image: `${image}`,
   });
-  const token = helpers.createToken({ email });
+  const token = helpers.createToken({ email, id });
   return { token };
 };
 
