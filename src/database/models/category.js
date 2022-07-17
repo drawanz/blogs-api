@@ -9,12 +9,13 @@ const createCategoryModel = (sequelize, DataTypes) => {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
+      autoIncrement: true,
     },
     name: DataTypes.STRING,
-  }, {
-    tableName: 'Categories',
-    timestamps: false,
-  });
+    }, {
+      tableName: 'Categories',
+      timestamps: false,
+    });
 
   Category.associate = (models) => {
     Category.hasMany(models.PostCategory, {
