@@ -3,13 +3,20 @@ const Sequelize = require('sequelize');
 const httpStatus = require('../helpers/httpStatusCode');
 const config = require('../database/config/config');
 const helpers = require('../helpers/index');
-const { User, BlogPost, PostCategory } = require('../database/models/index.js');
+const { User, BlogPost, PostCategory, Category } = require('../database/models/index.js');
 require('dotenv').config();
 
 const sequelize = new Sequelize(config.development);
 
-const validateArray = (arr) => {
-  if (!Array.isArray(arr) || arr.length === 0) {
+const validateArray = async (category) => {
+  const response = await Category.findAll({
+    attributes: ['id'],
+  });
+  const categories = response.map((e) => e.dataValues.id);
+  if (
+    !Array.isArray(category) 
+    || category.length === 0
+    || categories.some((e) => !category.includes(e))) {
     return { 
       status: httpStatus.BAD_REQUEST, 
       message: '"categoryIds" not found',
@@ -36,14 +43,13 @@ const createPost = async (token, { title, content, categoryIds }) => {
     await t.commit();
     return dataValues;
   } catch (e) {
-    console.log(e);
     await t.rollback();
   }
 };
 
 const postPost = async (token, { title, content, categoryIds }) => {
   const validateProps = helpers.validateProperties({ title, content, categoryIds });
-  const validateCategory = validateArray(categoryIds);
+  const validateCategory = await validateArray(categoryIds);
   if (validateProps.message) {
     return validateProps;
   }
