@@ -4,6 +4,9 @@
  * @param {import('sequelize').queryInterface } queryInterface 
  * @param {import('sequelize').Sequelize} Sequelize 
 */
+
+const sequelize = require('sequelize');
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('BlogPosts', {
@@ -34,12 +37,12 @@ module.exports = {
       published: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        defaultValue: sequelize.literal('NOW()'),
       },
       updated: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        defaultValue: sequelize.literal('NOW()'),
       },
     });
   },
