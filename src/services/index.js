@@ -6,6 +6,7 @@ const postCategories = require('./postCategories');
 const getCategories = require('./getCategories');
 const postPost = require('./postPost');
 const getPost = require('./getPost');
+const getPostById = require('./getPostById');
 
 module.exports = {
   postLogin,
@@ -16,4 +17,5 @@ module.exports = {
   getCategories,
   postPost,
   getPost,
+  getPostById,
 };
