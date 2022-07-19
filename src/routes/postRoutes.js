@@ -10,4 +10,10 @@ router.post(
   controllers.postPost,
 );
 
+router.get(
+  '/post',
+  authToken,
+  controllers.getPost,
+);
+
 module.exports = router;
