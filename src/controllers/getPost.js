@@ -5,7 +5,7 @@ const getPost = async (req, res, next) => {
   try {
     console.log('requisitou no controller');
     const response = await services.getPost();
-    return res.status(200).json(response);
+    return res.status(httpStatus.OK).json(response);
   } catch (e) {
     next(e);
   }
