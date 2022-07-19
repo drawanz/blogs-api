@@ -9,17 +9,20 @@ router.post(
   authToken,
   controllers.postPost,
 );
-
 router.get(
   '/post',
   authToken,
   controllers.getPost,
 );
-
 router.get(
   '/post/:id',
   authToken,
   controllers.getPostById,
+);
+router.put(
+  '/post/:id',
+  authToken,
+  controllers.putPostById,
 );
 
 module.exports = router;
