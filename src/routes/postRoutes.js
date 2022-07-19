@@ -16,4 +16,10 @@ router.get(
   controllers.getPost,
 );
 
+router.get(
+  '/post/:id',
+  authToken,
+  controllers.getPostById,
+);
+
 module.exports = router;
