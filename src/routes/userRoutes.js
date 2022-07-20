@@ -8,17 +8,20 @@ router.post(
   '/user', 
   controllers.postUser,
 );
-
 router.get(
   '/user', 
   authToken,
   controllers.getUsers,
 );
-
 router.get(
   '/user/:id',
   authToken,
   controllers.getUserById,
+);
+router.delete(
+  '/user/me',
+  authToken,
+  controllers.deleteUserMe,
 );
 
 module.exports = router;
