@@ -4,6 +4,11 @@ const authToken = require('../middlewares/authToken');
 
 const router = express.Router();
 
+router.get(
+  '/post/search',
+  authToken,
+  controllers.postSearch,
+);
 router.post(
   '/post',
   authToken,
