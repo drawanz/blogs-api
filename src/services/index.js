@@ -10,6 +10,7 @@ const getPostById = require('./getPostById');
 const putPostById = require('./putPostById');
 const deletePostById = require('./deletePostById');
 const deleteUserMe = require('./deleteUserMe');
+const postSearch = require('./postSearch');
 
 module.exports = {
   postLogin,
@@ -24,4 +25,5 @@ module.exports = {
   putPostById,
   deletePostById,
   deleteUserMe,
+  postSearch,
 };
