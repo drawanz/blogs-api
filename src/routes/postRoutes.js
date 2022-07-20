@@ -24,5 +24,10 @@ router.put(
   authToken,
   controllers.putPostById,
 );
+router.delete(
+  '/post/:id',
+  authToken,
+  controllers.deletePostById,
+);
 
 module.exports = router;
