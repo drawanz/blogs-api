@@ -1,6 +1,8 @@
 const express = require('express');
+const swaggerUi = require('swagger-ui-express');
 const routers = require('./routes/index');
 const middlewares = require('./middlewares/index');
+const swaggerFile = require('../swagger-output.json');
 
 const app = express();
 
@@ -10,7 +12,6 @@ app.use(routers.userRoutes);
 app.use(routers.categoriesRoutes);
 app.use(routers.postRoutes);
 app.use(middlewares.errorHandle);
+app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
-// É importante exportar a constante `app`,
-// para que possa ser utilizada pelo arquivo `src/server.js`
 module.exports = app;
