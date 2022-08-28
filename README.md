@@ -6,7 +6,7 @@
 
   A documentação pode ser encontrada na rota 'locahost:3000/doc'.
   
-  <img src="src/images/routes.png" width="100" height="100">
+  ![](src/images/rotas.png)
 
 # Ferramentas utilizadas
 
