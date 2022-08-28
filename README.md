@@ -20,6 +20,7 @@
 # Rodando o projeto
 
   - Git clone nesse repositório
+  - npm install
   - docker compose up -d
   - docker exec -it blogs_api bash
   - dentro do container rode: npm start(o comando npm start irá criar o banco de dados e popular-lo)
