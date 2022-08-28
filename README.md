@@ -5,6 +5,8 @@
 # Documentação
 
   A documentação pode ser encontrada na rota 'locahost:3000/doc'.
+  
+  <img src="images/routes.png" width="100" height="100">
 
 # Ferramentas utilizadas
 
@@ -20,5 +22,5 @@
   - Git clone nesse repositório
   - docker compose up -d
   - docker exec -it blogs_api bash
-  - dentro do container rode: npm start(o comando npm start irá criar o banco de dados e populá-lo)
+  - dentro do container rode: npm start(o comando npm start irá criar o banco de dados e popular-lo)
   - requisite quaisquer rotas que estejam pré definidas(acesse a documentação para ter acesso aos padrões de urls e requisições)
